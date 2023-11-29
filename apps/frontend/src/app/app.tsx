@@ -1,10 +1,23 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
+import { useEffect, useState } from 'react';
+import router from '../router';
+
+import { RouterProvider } from 'react-router-dom';
+import Loader from '../common/Loader';
+
+
 
 export function App() {
-  return (
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+  
+  return loading ? (
+    <Loader />
+  ) : (
     <div>
-      <h1>Login</h1>
+      <RouterProvider router={router} />
     </div>
   );
 }
