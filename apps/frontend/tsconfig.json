@@ -7,10 +7,7 @@
     "strict": true
   },
   "files": [],
-  "include": [
-    "libs/lib1/src/**/!(*.stories|*.spec).{ts,tsx,html}",
-    "libs/lib2/src/**/!(*.stories|*.spec).{ts,tsx,html}"
-  ],
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"
