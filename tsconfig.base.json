@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@information-system/dto": ["apps/dto/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
