@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Navbar,
@@ -41,7 +40,7 @@ const Header = () => {
           />
           <NavbarBrand>
           {/* <link href="/Admin"> */}
-            <p className="font-bold text-inherit">UniPrime</p>
+            <p className="font-bold text-inherit">Prime Unilum</p>
             {/* </link> */}
           </NavbarBrand>
         </NavbarContent>
