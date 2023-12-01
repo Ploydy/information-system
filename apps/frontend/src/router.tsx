@@ -1,10 +1,10 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 
-import Login from './pages/Login';
-import AdminLayout from './pages/admin/layout/AdminLayout';
-import Dashboard from './pages/admin/Dashboard';
-import User from './pages/admin/User';
-import UserForm from './pages/admin/UserForm';
+import Login from './Views/Login';
+import AdminLayout from './Views/Layout/AdminLayout';
+import Dashboard from './Views/Admin/Dashboard';
+import User from './Views/Admin/User';
+import UserForm from './Views/Admin/UserForm';
 
 const router = createBrowserRouter([
   {

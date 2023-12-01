@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import router from '../router';
 
 import { RouterProvider } from 'react-router-dom';
-import Loader from '../common/Loader';
+import Loader from '../Views/Shared/Loader';
 
 
 
