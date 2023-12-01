@@ -1,19 +1,46 @@
+import React, { useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Button,
   Card,
   CardBody,
   Checkbox,
   Input,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
 } from '@nextui-org/react';
 
+export default function Login (props:any)  {
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(['Easy access Login']));
 
-const Login = () => {
-  
+  const selectedValue = useMemo(
+    () => Array.from(selectedKeys).join(', ').replaceAll('_', ' '),
+    [selectedKeys]
+  );
+
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    console.log('Login')
-  }
- 
+    console.log(`login ${selectedValue}`);
+    if (selectedValue === "admin") {
+      navigate("/Admin");
+    }
+    if (selectedValue === "employee") {
+      navigate("/Employee");
+    }
+    if (selectedValue === "secretary") {
+      navigate("/Secretary");
+    }
+    if (selectedValue === "customer") {
+      navigate("/customer");
+    }
+    if (selectedValue === "State") {
+      alert("incorrect Credentails Please choose one on state below! ");
+    }
+  };
+
   return (
     <div>
       <div className="px-4 py-40 mx-auto sm:px-6 lg:px-8 max-w-7x1">
@@ -38,34 +65,34 @@ const Login = () => {
                 placeholder="Password"
               />
               <Checkbox className="py-4">Remember me</Checkbox>
+
               <div className="mx-0 my-2">
-                {/* <div>
-                  <Dropdown>
-                    <DropdownTrigger>
-                      <Button variant="bordered" className="capitalize">
-                        
-                      </Button>
-                    </DropdownTrigger>
-                    <DropdownMenu
-                      aria-label="Single selection example"
-                      variant="flat"
-                      disallowEmptySelection
-                      selectionMode="single"
-                      selectedKeys={selectedKeys}
-                      onSelectionChange={setSelectedKeys}
-                      {...props}
-                    >
-                      <DropdownItem key="admin">Admin</DropdownItem>
-                      <DropdownItem key="employee">Employee</DropdownItem>
-                      <DropdownItem key="secretary">Secretary</DropdownItem>
-                      <DropdownItem key="customer">Customer</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </div> */}
+                <Dropdown>
+                  <DropdownTrigger>
+                    <Button variant="bordered" className="capitalize">
+                      {selectedValue}
+                    </Button>
+                  </DropdownTrigger>
+                  <DropdownMenu
+                    aria-label="Single selection example"
+                    variant="flat"
+                    disallowEmptySelection
+                    selectionMode="single"
+                    selectedKeys={selectedKeys}
+                    onSelectionChange={setSelectedKeys}
+                    {...props}
+                  >
+                    <DropdownItem key="admin">Admin</DropdownItem>
+                    <DropdownItem key="employee">Employee</DropdownItem>
+                    <DropdownItem key="secretary">Secretary</DropdownItem>
+                    <DropdownItem key="customer">Customer</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+
                 <div className="my-2">
-                  
+                  <Link to="/register">
                     <Button>Create an account</Button>
-                  
+                  </Link>
                 </div>
               </div>
               <Button onClick={handleLogin}>Login</Button>
@@ -77,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+

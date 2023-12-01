@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
@@ -11,6 +12,7 @@ import {
 } from "@nextui-org/react";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -29,7 +31,7 @@ const Header = () => {
   
   const handleLogout = () => {
     console.log(`Logout`)
-    
+    navigate('/')
   };
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-slate-500">
@@ -45,31 +47,37 @@ const Header = () => {
           </NavbarBrand>
         </NavbarContent>
 
+
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem>
-            {/* <Link color="foreground" href="/Admin/Overview"> */}
-            Overview
-            {/* </Link> */}
-          </NavbarItem>
-          <NavbarItem>
-            {/* <Link color="foreground" href="/Admin" > */}
+
+        <NavbarItem>
+            <Link color="foreground" to="/Admin" >
             Dashboard
-            {/* </Link> */}
+            </Link>
           </NavbarItem>
+          
           <NavbarItem>
-           {/*  <Link color="foreground" href="/Admin/Users"> */}
+            <Link color="foreground" to="/Admin/Overview">
+            Overview
+            </Link>
+          </NavbarItem>
+
+         
+
+          <NavbarItem>
+            <Link color="foreground" to="/Admin/User">
             Users
-            {/* </Link> */}
+            </Link>
           </NavbarItem>
           <NavbarItem>
-            {/* <Link color="foreground" href="/Admin/Email"> */}
+            <Link color="foreground" to="/Admin/Email">
             Email
-            {/* </Link> */}
+            </Link>
           </NavbarItem>
           <NavbarItem>
-            {/* <Link color="foreground" href="/Admin/Feedback"> */}
+            <Link color="foreground" to="/Admin/Feedback">
             Feedback
-            {/* </Link> */}
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">

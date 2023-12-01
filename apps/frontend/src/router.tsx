@@ -5,6 +5,10 @@ import AdminLayout from './Views/Layout/AdminLayout';
 import Dashboard from './Views/Admin/Dashboard';
 import User from './Views/Admin/User';
 import UserForm from './Views/Admin/UserForm';
+import Register from './Views/Account/Register';
+import Overview from './Views/Admin/Overview';
+import Email from './Views/Admin/Email';
+import Feedback from './Views/Admin/Feedback';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +22,18 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Dashboard />,
+      },
+      {
+        path: '/admin/overview',
+        element: <Overview />
+      },
+      {
+        path: '/admin/email',
+        element: <Email />
+      },
+      {
+        path: '/admin/feedback',
+        element: <Feedback />
       },
       {
         path: '/admin/user',
@@ -39,5 +55,9 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/register',
+    element: <Register />
+  }
 ]);
 export default router;
