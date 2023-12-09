@@ -3,7 +3,7 @@ export const access = [
     {
       label: 'Admin',
       value: 'admin',
-      description: 'The second most popular pet in the world',
+      role: 'Admin'
     },
     {
       label: 'Secretary',
