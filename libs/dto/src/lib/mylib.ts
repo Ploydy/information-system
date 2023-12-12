@@ -10,7 +10,7 @@ export class CreateUserDto {
 }
 
 export class UpdateUserDto {
-  readonly _id!: object;
+  readonly _id!: string;
   readonly fullName!: string;
   readonly email!: string;
   readonly role!: string;
@@ -28,5 +28,5 @@ export type UserRequest = {
   fullName: string;
   email: string;
   role: string;
-  password: string;
+  password: string; 
 }

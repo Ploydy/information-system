@@ -4,15 +4,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CreateUserDto, UpdateUserDto } from '@information-system/mylib';
-import { UserRequest } from '@information-system/mylib';
-
-type FormData = {
-  id: string;
-  email: string;
-  role: string;
-  fullName: string;
-  password: string;
-};
+import { UserRequest, UserResponse } from '@information-system/mylib';
 
 const UserForm = (props: any) => {
   const { id } = useParams<{ id: string }>();
@@ -23,47 +15,40 @@ const UserForm = (props: any) => {
     handleSubmit,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<UserResponse>();
 
-  const handleSave = async (user: CreateUserDto) => {
+  const handleSave = async (user: UserResponse) => {
     const request: UserRequest = {
       fullName: user.fullName,
       email: user.email,
-      password: user.password,
       role: user.role,
+      password: user.password,
     };
-
-    try {
-      if(id){
-
-        await axios.put<UpdateUserDto>(
-          `http://localhost:4200/api/users/new:${id}`,
-          request
-          );
-        } else {
-          await axios.post<CreateUserDto>(
-            'http://localhost:4200/api/users/new',
-            request
-          )
-        }
-      navigate('/admin/user');
-    } catch (err) {
-      console.log(err);
-    }
+     try {
+      if (id) {
+        await axios.put<UpdateUserDto>(`http://localhost:4200/api/users/${id}`, request)
+      } else {
+        await axios.post<CreateUserDto>('http://localhost:4200/api/users/new', request)
+      }
+      navigate('/admin/user')
+     } catch (error) {
+      console.log(error)
+     }
+   
   };
 
   // getting data
   useEffect(() => {
     axios
-      .get<UpdateUserDto>('http://localhost:4200/api/users/' + id)
-      .then((res) => {
+      .get<UserRequest>('http://localhost:4200/api/users/' + id)
+      .then(res => {
         setValue('fullName', res.data.fullName);
         setValue('email', res.data.email);
         setValue('role', res.data.role);
         setValue('password', res.data.password);
       })
-      .catch((err) => console.log(err));
-  }, [id]);
+      .catch(err => console.log(err));
+  }, [id, setValue]);
 
   return (
     <div className="container card">

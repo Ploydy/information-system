@@ -9,7 +9,6 @@
     "@nestjs/core": "^10.0.2",
     "@nestjs/mongoose": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
-    "@nestjs/typeorm": "^10.0.1",
     "@nextui-org/react": "^2.2.9",
     "@swc/helpers": "~0.5.2",
     "@types/mongodb": "^4.0.7",
