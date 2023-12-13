@@ -1,25 +1,21 @@
-import Header from '../Component/Admin/Header';
+import { Outlet } from "react-router-dom";
+import EmpHeader from "../Component/Employee/EmpHeader";
+import EmpSidebar from "../Component/Employee/EmpSidebar";
 
-import { Outlet } from 'react-router-dom';
-/* import { useState } from 'react'; */
-import Sidebar from '../Component/Admin/Sidebar';
-
-function AdminLayout() {
-  /* const [sidebarOpen, setSidebarOpen] = useState(false); */
-
+const EmployeeLayout = () => {
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">
       {/* <!-- ===== Page Wrapper Start ===== --> */}
       <div className="flex h-screen overflow-hidden">
         {/* <!-- ===== Sidebar Start ===== --> */}
-        <Sidebar /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
+        <EmpSidebar /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
         />
         {/* <!-- ===== Sidebar End ===== --> */}
 
         {/* <!-- ===== Content Area Start ===== --> */}
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           {/* <!-- ===== Header Start ===== --> */}
-          <Header /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
+          <EmpHeader /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
           />
           {/* <!-- ===== Header End ===== --> */}
 
@@ -35,7 +31,7 @@ function AdminLayout() {
       </div>
       {/* <!-- ===== Page Wrapper End ===== --> */}
     </div>
-  );
-}
+  )
+};
 
-export default AdminLayout;
+export default EmployeeLayout;

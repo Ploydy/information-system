@@ -1,25 +1,22 @@
-import Header from '../Component/Admin/Header';
+import { Outlet } from "react-router-dom";
+import SecHeader from "../Component/Secretary/SecHeader";
+import SecSidebar from "../Component/Secretary/SecSidebar";
 
-import { Outlet } from 'react-router-dom';
-/* import { useState } from 'react'; */
-import Sidebar from '../Component/Admin/Sidebar';
 
-function AdminLayout() {
-  /* const [sidebarOpen, setSidebarOpen] = useState(false); */
-
+const SecretaryLayout = () => {
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">
       {/* <!-- ===== Page Wrapper Start ===== --> */}
       <div className="flex h-screen overflow-hidden">
         {/* <!-- ===== Sidebar Start ===== --> */}
-        <Sidebar /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
+        <SecSidebar /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
         />
         {/* <!-- ===== Sidebar End ===== --> */}
 
         {/* <!-- ===== Content Area Start ===== --> */}
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           {/* <!-- ===== Header Start ===== --> */}
-          <Header /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
+          <SecHeader /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
           />
           {/* <!-- ===== Header End ===== --> */}
 
@@ -36,6 +33,6 @@ function AdminLayout() {
       {/* <!-- ===== Page Wrapper End ===== --> */}
     </div>
   );
-}
+};
 
-export default AdminLayout;
+export default SecretaryLayout;

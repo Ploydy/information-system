@@ -9,6 +9,12 @@ import Register from './Views/Account/Register';
 import Overview from './Views/Admin/Overview';
 import Email from './Views/Admin/Email';
 import Feedback from './Views/Admin/Feedback';
+import SecretaryLayout from './Views/Layout/SecretaryLayout';
+import EmployeeLayout from './Views/Layout/EmployeeLayout';
+import CustomerLayout from './Views/Layout/CustomerLayout';
+import Products from './Views/Admin/Customer/Products';
+import Cart from './Views/Admin/Customer/Cart';
+import Delivery from './Views/Admin/Customer/Delivery';
 
 const router = createBrowserRouter([
   {
@@ -25,15 +31,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin/overview',
-        element: <Overview />
+        element: <Overview />,
       },
       {
         path: '/admin/email',
-        element: <Email />
+        element: <Email />,
       },
       {
         path: '/admin/feedback',
-        element: <Feedback />
+        element: <Feedback />,
       },
       {
         path: '/admin/user',
@@ -57,7 +63,54 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <Register />
-  }
+    element: <Register />,
+  },
+  {
+    path: '/secretary',
+    element: <SecretaryLayout />,
+    children: [
+      {
+        path: '',
+        element: <Dashboard />,
+      },
+      {
+        path: '/secretary/email',
+        element: <Email />,
+      },
+      {
+        path: '/secretary/feedback',
+        element: <Feedback />,
+      },
+    ],
+  },
+  {
+    path: '/employee',
+    element: <EmployeeLayout />,
+    children: [
+      {
+        path: '',
+        element: <Dashboard />,
+      }, 
+    ],
+  },
+  {
+    path: '/customer',
+    element: <CustomerLayout />,
+    children: [
+      {
+        path: '',
+        element: <Products />,
+      }, 
+      {
+        path: '/customer/cart',
+        element: <Cart />,
+      },
+      {
+        path: '/customer/delivery',
+        element: <Delivery />
+      },
+    ],
+  },
+
 ]);
 export default router;

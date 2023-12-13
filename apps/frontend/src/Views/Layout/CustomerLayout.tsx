@@ -1,25 +1,15 @@
-import Header from '../Component/Admin/Header';
+import { Outlet } from "react-router-dom";
+import CxHeader from "../Component/Customer/CxHeader";
 
-import { Outlet } from 'react-router-dom';
-/* import { useState } from 'react'; */
-import Sidebar from '../Component/Admin/Sidebar';
-
-function AdminLayout() {
-  /* const [sidebarOpen, setSidebarOpen] = useState(false); */
-
+const Customer = () => {
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">
       {/* <!-- ===== Page Wrapper Start ===== --> */}
-      <div className="flex h-screen overflow-hidden">
-        {/* <!-- ===== Sidebar Start ===== --> */}
-        <Sidebar /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
-        />
-        {/* <!-- ===== Sidebar End ===== --> */}
-
+      <div className="flex h-screen overflow-hidden">     
         {/* <!-- ===== Content Area Start ===== --> */}
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           {/* <!-- ===== Header Start ===== --> */}
-          <Header /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
+          <CxHeader /* sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} */
           />
           {/* <!-- ===== Header End ===== --> */}
 
@@ -35,7 +25,7 @@ function AdminLayout() {
       </div>
       {/* <!-- ===== Page Wrapper End ===== --> */}
     </div>
-  );
-}
+  )
+};
 
-export default AdminLayout;
+export default Customer;
