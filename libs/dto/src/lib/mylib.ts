@@ -30,3 +30,20 @@ export type UserRequest = {
   role: string;
   password: string; 
 }
+
+
+export class CreateProductDto {
+  readonly title!: string;
+  readonly description!: string;
+  readonly price!: number;
+  readonly category!: string;
+
+}
+
+export class UpdateProductDto {
+  readonly _id!: string;
+  readonly title!: string;
+  readonly description!: string;
+  readonly price!: number;
+  readonly category!: string;
+}

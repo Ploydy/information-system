@@ -1,7 +1,6 @@
 import { Button } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-/* import mongoose from 'mongoose'; */
 import { UserResponse } from '@information-system/mylib';
 import axios from 'axios';
 
