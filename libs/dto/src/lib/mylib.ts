@@ -47,3 +47,17 @@ export class UpdateProductDto {
   readonly price!: number;
   readonly category!: string;
 }
+
+export type ProductResponse = {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+}
+export type ProductRequest = {
+  title: string;
+  description: string;
+  price: number;
+  category: string; 
+}
