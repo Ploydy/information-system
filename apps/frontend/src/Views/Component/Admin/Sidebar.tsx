@@ -44,7 +44,7 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="/admin/Tickets"
+            <Link to="#"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg
@@ -95,7 +95,7 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="/Team"
+            <Link to="#"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg
@@ -112,7 +112,7 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="/Settings"
+            <Link to="#"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg
@@ -129,7 +129,7 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="/About-us"
+            <Link to="#"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg

@@ -1,9 +1,14 @@
-import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
-import aluminum from '../../../Gallery/Products/aluminum.jpg'
-/* import glass from '../../../Gallery/Products/glass.jpg' */
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Image,
+} from '@nextui-org/react';
+/* import aluminum from '../../Gallery/Products/aluminum.jpg'; */
+import glass from '../../Gallery/Products/glass.jpg'
 import { useEffect, useState } from 'react';
 import { ProductResponse } from '@information-system/mylib';
-/* import axios from 'axios'; */
 
 const ProductCard = () => {
   const [products, setProducts] = useState<ProductResponse[]>([]);
@@ -25,14 +30,6 @@ const ProductCard = () => {
     })();
   }, []);
 
-  /* const defaultImg = () => {
-    if (products.title === 'Aluminum') {
-      return aluminum 
-    } else {
-      return glass
-    }
-  }  */
-
   return (
     <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
       {products.map((product) => (
@@ -43,6 +40,9 @@ const ProductCard = () => {
           isPressable
           onPress={() => console.log('Modal (add to cart or nah)')}
         >
+          <CardHeader>
+            <p>{product.category}</p>
+          </CardHeader>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -50,14 +50,14 @@ const ProductCard = () => {
               width="100%"
               alt={product.title}
               className="w-full object-cover h-[140px]"
-              src={aluminum}
+              src={glass}
+              
             />
           </CardBody>
           <CardFooter className="text-small justify-between">
             <b>{product.title}</b>
-            <p className="text-default-500">{product.price}</p>
+            <p className="text-default-500">${product.price}</p>
             <p className="text-default-500">{product.description}</p>
-            <p className="text-default-500">{product.category}</p>
           </CardFooter>
         </Card>
       ))}
