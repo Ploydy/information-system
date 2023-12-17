@@ -1,38 +1,45 @@
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
 import aluminum from '../../../Gallery/Products/aluminum.jpg'
-import glass from '../../../Gallery/Products/glass.jpg'
+/* import glass from '../../../Gallery/Products/glass.jpg' */
+import { useEffect, useState } from 'react';
+import { ProductResponse } from '@information-system/mylib';
+/* import axios from 'axios'; */
 
 const ProductCard = () => {
-  const list = [
-    {
-      title: 'Aluminum',
-      img: aluminum,
-      price: '$5.50',
-    },
-    {
-      title: 'Glass',
-      img: glass,
-      price: '$3.00',
-    },
-    {
-      title: 'Aluminum 5 X 7',
-      img: '/images/fruit-3.jpeg',
-      price: '$10.00',
-    },
-    {
-      title: 'Glass 6 X 9',
-      img: '/images/fruit-4.jpeg',
-      price: '$5.30',
-    },
-    
-  ];
+  const [products, setProducts] = useState<ProductResponse[]>([]);
+  const PRODUCTURI = 'http://localhost:4200/api/products';
+
+  const getProducts = async () => {
+    try {
+      const result = await fetch(PRODUCTURI);
+      const res = await result.json();
+      setProducts(res as ProductResponse[]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      getProducts();
+    })();
+  }, []);
+
+  /* const defaultImg = () => {
+    if (products.title === 'Aluminum') {
+      return aluminum 
+    } else {
+      return glass
+    }
+  }  */
+
   return (
     <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
-      {list.map((item, index) => (
+      {products.map((product) => (
         <Card
-        className=''
+          key={product._id}
+          className=""
           shadow="sm"
-          key={index}
           isPressable
           onPress={() => console.log('Modal (add to cart or nah)')}
         >
@@ -41,19 +48,21 @@ const ProductCard = () => {
               shadow="sm"
               radius="lg"
               width="100%"
-              alt={item.title}
+              alt={product.title}
               className="w-full object-cover h-[140px]"
-              src = {item.img}
+              src={aluminum}
             />
           </CardBody>
           <CardFooter className="text-small justify-between">
-            <b>{item.title}</b>
-            <p className="text-default-500">{item.price}</p>
+            <b>{product.title}</b>
+            <p className="text-default-500">{product.price}</p>
+            <p className="text-default-500">{product.description}</p>
+            <p className="text-default-500">{product.category}</p>
           </CardFooter>
         </Card>
       ))}
     </div>
-  )
+  );
 };
 
 export default ProductCard;

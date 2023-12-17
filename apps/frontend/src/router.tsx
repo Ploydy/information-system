@@ -42,6 +42,10 @@ const router = createBrowserRouter([
         element: <Feedback />,
       },
       {
+        path: '/admin/products',
+        element: <Products />,
+      },
+      {
         path: '/admin/user',
         element: <Outlet />,
         children: [
