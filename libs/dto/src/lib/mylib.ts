@@ -1,7 +1,10 @@
+
 export function mylib(): string {
   return 'mylib';
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+// start user 
 export class CreateUserDto {
   readonly fullName!: string;
   readonly email!: string;
@@ -29,14 +32,16 @@ export type UserRequest = {
   email: string;
   role: string;
   password: string; 
-}
+} // end user 
 
+
+// start product
 
 export class CreateProductDto {
   readonly title!: string;
   readonly description!: string;
   readonly price!: number;
-  readonly category!: string;
+  readonly category!: number;
 
 }
 
@@ -45,7 +50,7 @@ export class UpdateProductDto {
   readonly title!: string;
   readonly description!: string;
   readonly price!: number;
-  readonly category!: string;
+  readonly category!: number;
 }
 
 export type ProductResponse = {
@@ -53,11 +58,12 @@ export type ProductResponse = {
   title: string;
   description: string;
   price: number;
-  category: string;
+  category: number;
 }
 export type ProductRequest = {
   title: string;
   description: string;
   price: number;
-  category: string; 
-}
+  category: number; 
+} // end product
+

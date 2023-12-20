@@ -1,15 +1,15 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-/* 
-export enum Category {
-  ALUMINUM = 'Aluminum',
-  GLASS = 'Glass'
 
-} */
+export enum ProductCategory {
+  ALUMINUM = 1,
+  GLASS = 2,
+}
 
 @Schema({
   timestamps: true,
 })
+
 export class Product {
   @Prop()
   title: string;
@@ -21,7 +21,7 @@ export class Product {
   price: number;
 
   @Prop()
-  category: string;
+  category: ProductCategory;
 }
 
 

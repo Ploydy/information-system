@@ -1,23 +1,24 @@
+import { Button } from '@nextui-org/react';
 import ProductCard from './ProductCard';
-
-/* 
-const getProducts = async () => {
-  try {
-    const res = await fetch('http://localhost:4200/api/products', {
-      cache: 'no-store',
-    });
-    return res.json();
-  } catch (error) {
-    console.log('Failed to get products', error);
-  }
-}; 
-*/
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   return (
-    <div className="my-10"> 
+    <div className="my-10">
+      <Button>
+        <Link to="/admin/products/new">Add Product</Link>
+      </Button>
+      <div className="my-20 ">
+        Aluminum
+        <div>
+          <ProductCard />
+        </div>
+      </div>
       <div>
-        <ProductCard />
+        Glass
+        <div>
+          <ProductCard />
+        </div>
       </div>
     </div>
   );

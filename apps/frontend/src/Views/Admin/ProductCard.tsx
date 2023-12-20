@@ -34,7 +34,7 @@ const ProductCard = () => {
     <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
       {products.map((product) => (
         <Card
-          key={product._id}
+          key={product.category}
           className=""
           shadow="sm"
           isPressable

@@ -16,6 +16,7 @@ import Feedback from './Views/Admin/Feedback';
 import Products from './Views/Admin/Products';
 // end admin
 
+
 // sec start
 import SecretaryLayout from './Views/Layout/SecretaryLayout';
 // end sec
@@ -60,6 +61,24 @@ const router = createBrowserRouter([
       {
         path: '/admin/feedback',
         element: <Feedback />,
+      },
+      {
+        path: '/admin/products',
+        element: <Outlet />,
+        children: [
+          {
+            path: '',
+           element: <Products />
+          },
+          {
+            path: 'new',
+            element: <ProductForm />,
+          },
+          {
+            path: ':id',
+            element: <ProductForm />,
+          },
+        ],
       },
       {
         path: '/admin/user',
