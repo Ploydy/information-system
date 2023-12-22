@@ -67,3 +67,66 @@ export type ProductRequest = {
   category: number; 
 } // end product
 
+
+// start aluminum 
+
+export class CreateAluminumDto {
+  readonly title!: string;
+  readonly description!: string;
+  readonly price!: number;
+  readonly category!: number;
+
+}
+
+export class UpdateAluminumDto {
+  readonly _id!: string;
+  readonly title!: string;
+  readonly description!: string;
+  readonly price!: number;
+  readonly category!: number;
+}
+
+export type AluminumResponse = {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: number;
+}
+export type AluminumRequest = {
+  title: string; 
+  description: string;
+  price: number;
+  category: number; 
+} //end aluminum
+
+// start glass
+export class CreateGlassDto {
+  readonly title!: string;
+  readonly description!: string;
+  readonly price!: number;
+  readonly category!: number;
+
+}
+
+export class UpdateGlassDto {
+  readonly _id!: string;
+  readonly title!: string;
+  readonly description!: string;
+  readonly price!: number;
+  readonly category!: number;
+}
+
+export type GlassResponse = {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: number;
+}
+export type GlassRequest = {
+  title: string; 
+  description: string;
+  price: number;
+  category: number; 
+}// end glass

@@ -1,6 +1,8 @@
 import { Button } from '@nextui-org/react';
-import ProductCard from './ProductCard';
+
 import { Link } from 'react-router-dom';
+import Aluminum from '../Aluminum/Aluminum';
+import Glass from '../Glass/Glass';
 
 const Products = () => {
   return (
@@ -9,15 +11,15 @@ const Products = () => {
         <Link to="/admin/products/new">Add Product</Link>
       </Button>
       <div className="my-20 ">
-        Aluminum
+       <h1>Aluminum</h1> 
         <div>
-          <ProductCard />
+          <Aluminum />
         </div>
       </div>
       <div>
-        Glass
+        <h1>Glass</h1>
         <div>
-          <ProductCard />
+          <Glass />
         </div>
       </div>
     </div>
