@@ -55,26 +55,26 @@ const ProductForm = () => {
   return(
     <div className="container card">
       <div className="form-title text-center">
-        <h2 className="text-dark">{!id ? 'New' : 'Update'} User</h2>
+        <h2 className="text-dark">{!id ? 'New' : 'Update'} Product</h2>
         <span className="">
-          Use the below form to {!id ? 'create a new' : 'update a'} user
+          Use the below form to {!id ? 'create a new' : 'update a'} product
         </span>
 
         <form method="POST">
           <div className="my-10 ">
             <Card className="max-w-md px-5 pt-5 ">
               <Input
-                placeholder="title"
+                placeholder="Title"
                 type="text"
                 {...register('title')}
               />
 
-              <Input placeholder="description" type="text" {...register('description')} />
+              <Input placeholder="Description" type="text" {...register('description')} />
 
-              <Input placeholder="price" type="text" {...register('price')} />
+              <Input placeholder="Price" type="text" {...register('price')} />
 
               <Input
-                placeholder="category"
+                placeholder="Category"
                 type="number"
                 {...register('category')}
               />

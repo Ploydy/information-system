@@ -1,13 +1,19 @@
-import React from 'react'
-import ProductCard from '../ProductCard'
+import Aluminum from '../../Aluminum/Aluminum';
+import Glass from '../../Glass/Glass';
 
 const CxProducts = () => {
   return (
     <div>
-      <ProductCard />
-     </div>
+      Aluminum
+      <div>
+        <Aluminum />
+      </div>
+      Glass
+      <div>
+        <Glass />
+      </div>
+    </div>
+  );
+};
 
-  )
-}
-
-export default CxProducts
+export default CxProducts;

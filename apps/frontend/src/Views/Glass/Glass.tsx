@@ -61,9 +61,9 @@ const Glass = () => {
             onPress={() => handleUpdate(glass._id)}
           >
             <CardHeader>
-              <p>{glass.category}</p>
+              <b>{glass.title}</b>
             </CardHeader>
-            <CardBody className="overflow-visible p-0">
+            <CardBody className="overflow-visible py-10 px-5">
               <Image
                 shadow="sm"
                 radius="lg"
@@ -73,9 +73,9 @@ const Glass = () => {
                 src={glassBG}
               />
             </CardBody>
-            <CardFooter className="text-small justify-between">
-              <b>{glass.title}</b>
-              <p className="text-default-500">${glass.price}</p>
+            <CardFooter className="text-small mx-4 justify-between">
+              <b>{glass.price}</b>
+              
               <p className="text-default-500">{glass.description}</p>
               <Button onClick={() => handleDelete(glass._id)}>
                 {' '}

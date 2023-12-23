@@ -16,7 +16,6 @@ import Feedback from './Views/Admin/Feedback';
 import Products from './Views/Admin/Products';
 // end admin
 
-
 // sec start
 import SecretaryLayout from './Views/Layout/SecretaryLayout';
 // end sec
@@ -30,7 +29,8 @@ import CustomerLayout from './Views/Layout/CustomerLayout';
 import CxProducts from './Views/Admin/Customer/CxProducts';
 import Delivery from './Views/Admin/Customer/Delivery';
 import Cart from './Views/Admin/Customer/Cart';
-import ProductForm from './Views/Admin/ProductForm';
+import AluminumForm from './Views/Admin/AluminumForm';
+import GlassForm from './Views/Admin/GlassForm';
 // end cx
 
 const router = createBrowserRouter([
@@ -42,8 +42,9 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />,
   },
-  {   // admin start
-    path: '/admin',   
+  {
+    // admin start
+    path: '/admin',
     element: <AdminLayout />,
     children: [
       {
@@ -68,15 +69,29 @@ const router = createBrowserRouter([
         children: [
           {
             path: '',
-           element: <Products />
+            element: <Products />,
+            /* children: [
+              {
+                path: 'aluminumnew',
+                element: <AluminumForm />,
+              },
+            ], */
           },
           {
-            path: 'new',
-            element: <ProductForm />,
+            path: 'aluminumnew',
+            element: <AluminumForm />,
           },
           {
-            path: ':id',
-            element: <ProductForm />,
+            path: 'aluminumnew/:id',
+            element: <AluminumForm />,
+          },
+          {
+            path: 'glassnew',
+            element: <GlassForm />,
+          },
+          {
+            path: 'glassnew/:id',
+            element: <GlassForm />,
           },
         ],
       },
@@ -100,9 +115,10 @@ const router = createBrowserRouter([
       },
     ], // end admin
   },
-  
-  {  // sec start
-    path: '/secretary', 
+
+  {
+    // sec start
+    path: '/secretary',
     element: <SecretaryLayout />,
     children: [
       {
@@ -119,17 +135,19 @@ const router = createBrowserRouter([
       },
     ], // end sec
   },
-  { // start employees
+  {
+    // start employees
     path: '/employee',
-    element: <EmployeeLayout />, 
+    element: <EmployeeLayout />,
     children: [
       {
         path: '',
         element: <Dashboard />,
-      }, 
+      },
     ], // end employee
   },
-  { // start cx
+  {
+    // start cx
     path: '/customer',
     element: <CustomerLayout />,
     children: [
@@ -143,10 +161,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/customer/delivery',
-        element: <Delivery />
+        element: <Delivery />,
       },
-    ],   // end cx
+    ], // end cx
   },
-
 ]);
 export default router;

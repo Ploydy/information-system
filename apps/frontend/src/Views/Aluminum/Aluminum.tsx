@@ -63,9 +63,9 @@ const Aluminum = () => {
             onPress={() => handleUpdate(aluminum._id)}
           >
             <CardHeader>
-              <p>{aluminum.category}</p>
+              <p>{aluminum.title}</p>
             </CardHeader>
-            <CardBody className="overflow-visible p-0">
+            <CardBody className="overflow-visible py-10 px-5">
               <Image
                 shadow="sm"
                 radius="lg"
@@ -76,9 +76,8 @@ const Aluminum = () => {
               />
             </CardBody>
             <CardFooter className="text-small justify-between">
-              <b>{aluminum.title}</b>
-              <p className="text-default-500">${aluminum.price}</p>
-              <p className="text-default-500">{aluminum.description}</p>
+              <b>${aluminum.price}</b>
+              <p className="text-default-900 mx-4">{aluminum.description}</p>
               <Button onClick={() => handleDelete(aluminum._id)}>
                 {' '}
                 Delete{' '}
